@@ -1,0 +1,8 @@
+FROM alpine:3.6
+
+RUN apk add --update --no-cache ca-certificates curl httpry && \
+    rm -rf /var/cache/apk/*
+
+ADD ./main /srv/service
+
+ENTRYPOINT ["/srv/service"]
